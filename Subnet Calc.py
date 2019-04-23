@@ -33,6 +33,10 @@ def lasthostip(network):
 
     return numhostips[-1]
 
+def netmask(network):
+    dottedDecimalNetmask = ipaddress.ip_network(network)
+    return dottedDecimalNetmask.netmask.compressed
+
 def wildcard_mask(network):
     """This function will print out the wildcard mask for the subnet range"""
     wildcardMask = ipaddress.ip_network(network)
@@ -60,6 +64,9 @@ def main():
 
     wcMask = wildcard_mask(network)
     print('The wildcard mask for the subnet would be:', wcMask)
+    
+    dottedMask = netmask(network)
+    print('The dotted-deciaml notation for the subnet mask would be:', dottedMask)
 
 if __name__ == '__main__':
     main()
