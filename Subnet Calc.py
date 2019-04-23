@@ -60,4 +60,6 @@ def main():
 
     wcMask = wildcard_mask(network)
     print('The wildcard mask for the subnet would be:', wcMask)
-main()
+
+if __name__ == '__main__':
+    main()
