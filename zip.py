@@ -12,6 +12,6 @@ def zipdir(path, zippath):
 
 if __name__ == '__main__':
     zipf = zipfile.ZipFile('/Users/matt/Desktop/Python.zip', 'w', allowZip64=True)
-    os.chdir('/Users/matt/Documents')
+    os.chdir('/Users/jp.c/Documents')
     zipdir('.', zipf)
     zipf.close()
